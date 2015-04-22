@@ -13,6 +13,10 @@ Calculates hough transform on the image, which is a per pixel accumulator over f
 ### FREAK: Fast Retina Keypoints
 algorithm from paper: http://infoscience.epfl.ch/record/175537/files/2069.pdf
 matches to the santitas logo - invariant to many perspective transformations, but more sensitive to scaling
+Uses RANSAC to estimate a probably transformation between the template image and the input
+http://en.wikipedia.org/wiki/RANSAC
+og paper: http://www.cs.columbia.edu/~belhumeur/courses/compPhoto/ransac.pdf
+just search google for some good explanations...
 
 ### dense optical flow
 uses farnebeck's algorithm to calculate dense optical flow fields
