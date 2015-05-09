@@ -32,7 +32,7 @@
     self.tableView.delegate = self;
     self.camera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
     
-    self.camera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetLow;
+    self.camera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetMedium;
     self.camera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
     
     self.camera.defaultFPS = 30;
