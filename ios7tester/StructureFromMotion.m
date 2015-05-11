@@ -70,6 +70,54 @@ static void drawArrows1(cv::Mat frame, const cv::vector<cv::Point2f>& prevPts, c
     }
 }
 
+bool isPointInfront(cv::Point2d &p1, cv::Point3d &p2, cv::Mat &R, cv::Mat &T){
+    cv::Mat g = R.row(0) - p2.x * R.row(2);
+    std::cout << g.size() << ", " << T.size() <<std::endl;
+    std::cout << p1 << ", " << &p2 <<std::endl;
+//
+//
+//    float z1 = T.dot(g) / p2.dot(g);
+//    cv::Mat a = cv::Mat(p1.x * z1, p2[0] * z1, z1);
+//    cv::Mat b = R.t()* a - R.t() * T;
+//    if (a.at<double>(2) < 0 || b.at<double>(2) < 0 ) {
+//        return FALSE;
+//    }
+    
+    return TRUE;
+}
+
+cv::Matx34d vettedCameraMatrix(cv::Point2d p1, cv::Point2d p2, cv::SVD svd){
+    cv::Matx34d output;
+    cv::Matx33d W(0,-1,0,//HZ 9.13
+                  1,0,0,
+                  0,0,1);
+    cv::Mat R = svd.u * cv::Mat(W) * svd.vt;
+    cv::Mat T = svd.u.col(2);
+//    if (isPointInfront(p1, p2 , R, T)) {
+//        cv::hconcat(R, T, output);
+//        return output;
+//    }
+//
+//    T = -1 * svd.u.col(2);
+//    if (isPointInfront(p1, p2, R, T)){
+//        cv::hconcat(R, T, output);
+//        return output;
+//    }
+//    R = svd.u * cv::Mat(W).t() * svd.vt;
+//    T = svd.u.col(2);
+//    if (isPointInfront(p1, p2, R, T)){
+//        cv::hconcat(R, T, output);
+//        return output;
+//    }
+//    T = -1 * svd.u.col(2);
+//    if (isPointInfront(p1, p2, R, T)){
+//        cv::hconcat(R, T, output);
+//        return output;
+//    }
+    cv::hconcat(R, T, output);
+    return output;
+    
+}
 
 void KeyPointsToPoints1(const cv::vector<cv::KeyPoint>& kps, cv::vector<cv::Point2f>& ps) {
 	ps.clear();
@@ -77,7 +125,7 @@ void KeyPointsToPoints1(const cv::vector<cv::KeyPoint>& kps, cv::vector<cv::Poin
 }
 
 bool CheckCoherentRotation1(cv::Mat_<double>& R) {
-    if(fabs(determinant(R))-1.0 > 1e-07) {
+    if(fabs(determinant(R)) > 1e-07) {
         std::cerr<<"det(R) != +-1.0, this is not a rotation matrix"<<std::endl;
         return false;
     }
@@ -217,13 +265,17 @@ double TriangulatePoints1(
 -(void)processImage:(cv::Mat &)image{
     if(self.shouldRun){
     cv::Mat img_scene;
+    cv::Mat cpy;
+    cv::cvtColor(image, cpy, CV_BGR2GRAY);
+    
+    cv::undistort(cpy, img_scene, cameraIntrinsic1, distortionMatrix1);
         
-    cv::cvtColor(image, img_scene, CV_BGR2GRAY);
-        if(self.shouldSave){
-            img_object1 = img_scene;
-            self.shouldSave = NO;
-        }
+    if(self.shouldSave){
+        img_object1 = img_scene;
+        self.shouldSave = NO;
+    }
         
+    
     cv::vector<cv::KeyPoint>left_keypoints,right_keypoints;
     // Detect keypoints in the left and right images
     
@@ -335,22 +387,16 @@ double TriangulatePoints1(
         cv::Mat_<double> E = cameraIntrinsic1.t() * F * cameraIntrinsic1; //according to HZ (9.12)
         
         cv::SVD svd(E);
-        cv::Matx33d W(0,-1,0,
-                      1,0,0,
-                      0,0,1);
         
-        cv::Mat_<double> R = svd.u * cv::Mat(W) * svd.vt; //HZ 9.19
-        cv::Mat_<double> t = svd.u.col(2); //u3
-        cv::Matx34d P1( R(0,0),R(0,1), R(0,2), t(0),
-                       R(1,0),R(1,1), R(1,2), t(1),
-                       R(2,0),R(2,1), R(2,2), t(2));
+        
+        
+        cv::Matx34d P1 = vettedCameraMatrix(imgpts1.at(1), imgpts2.at(1), svd);
         cv::vector<cv::Point3d> pointcloud;
         TriangulatePoints1(kpts1, kpts2, P01, P1, pointcloud);
         drawArrows1(image, imgpts1, imgpts2, status);
         self.openGLView.pixelsToRender = pointcloud;
         
-            }
-
+        }
     }
     
 }
