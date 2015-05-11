@@ -20,6 +20,8 @@ using namespace cv;
 #import "circleDetector.h"
 #import "templateMatcher.h"
 #import "OpticalFlow.h"
+#import "Calibrator.h"
+#import "StructureFromMotion.h"
 #import "freak.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
@@ -30,7 +32,12 @@ using namespace cv;
 @property (nonatomic,retain) circleDetector *circleD;
 @property (nonatomic,retain) templateMatcher *templateDel;
 @property (nonatomic,retain) OpticalFlow *opticalFlow;
+@property (nonatomic,retain) Calibrator *calibrate;
 @property (nonatomic,retain) freak *freek;
+@property (nonatomic,retain) StructureFromMotion *sfm;
 @property (nonatomic,retain) IBOutlet UITableView *tableView;
+
+-(IBAction) saveImage:(id)sender;
+-(IBAction) run:(id)sender;
 
 @end

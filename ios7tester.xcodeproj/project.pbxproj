@@ -45,6 +45,20 @@
 		42F45483180A2F6D00590B05 /* original.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42F45482180A2F6D00590B05 /* original.jpg */; };
 		42F45485180A2FE600590B05 /* square_annies_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42F45484180A2FE600590B05 /* square_annies_logo.jpg */; };
 		D01CFB9B1AE1BEA5001D1CA4 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01CFB9A1AE1BEA5001D1CA4 /* opencv2.framework */; };
+		D032D9E81AFDD22300D9BB60 /* Calibrator.mm in Sources */ = {isa = PBXBuildFile; fileRef = D032D9E71AFDD22300D9BB60 /* Calibrator.mm */; };
+		D032D9EC1B0000A900D9BB60 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D032D9EB1B0000A900D9BB60 /* OpenGLView.mm */; };
+		D032D9F71B0000DF00D9BB60 /* CC3Foundation.m in Sources */ = {isa = PBXBuildFile; fileRef = D032D9F01B0000DF00D9BB60 /* CC3Foundation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D032D9F81B0000DF00D9BB60 /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = D032D9F11B0000DF00D9BB60 /* CC3Kazmath.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D032D9F91B0000DF00D9BB60 /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = D032D9F51B0000DF00D9BB60 /* CC3Math.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D032D9FA1B0000DF00D9BB60 /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = D032D9F61B0000DF00D9BB60 /* CC3GLMatrix.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D032D9FD1B000BC800D9BB60 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D032D9FC1B000BC800D9BB60 /* OpenGLES.framework */; };
+		D032D9FF1B000BDC00D9BB60 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D032D9FE1B000BDC00D9BB60 /* ImageIO.framework */; };
+		D0BD81551B001356006581C4 /* Vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81521B001356006581C4 /* Vertex.glsl */; };
+		D0BD81561B001356006581C4 /* CalculationShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81531B001356006581C4 /* CalculationShader.fsh */; };
+		D0BD81571B001356006581C4 /* Fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81541B001356006581C4 /* Fragment.glsl */; };
+		D0BD815A1B002B0E006581C4 /* 0001.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81581B002B0E006581C4 /* 0001.png */; };
+		D0BD815B1B002B0E006581C4 /* 0002.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81591B002B0E006581C4 /* 0002.png */; };
+		D0BD815E1B00507B006581C4 /* StructureFromMotion.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BD815D1B00507B006581C4 /* StructureFromMotion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +121,29 @@
 		42F45482180A2F6D00590B05 /* original.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = original.jpg; sourceTree = "<group>"; };
 		42F45484180A2FE600590B05 /* square_annies_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = square_annies_logo.jpg; sourceTree = "<group>"; };
 		D01CFB9A1AE1BEA5001D1CA4 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../Downloads/opencv2.framework; sourceTree = "<group>"; };
+		D032D9E61AFDD22300D9BB60 /* Calibrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calibrator.h; sourceTree = "<group>"; };
+		D032D9E71AFDD22300D9BB60 /* Calibrator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Calibrator.mm; sourceTree = "<group>"; };
+		D032D9EA1B0000A900D9BB60 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		D032D9EB1B0000A900D9BB60 /* OpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView.mm; sourceTree = "<group>"; };
+		D032D9ED1B0000DF00D9BB60 /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
+		D032D9EE1B0000DF00D9BB60 /* CC3GLMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3GLMatrix.h; sourceTree = "<group>"; };
+		D032D9EF1B0000DF00D9BB60 /* CC3Foundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Foundation.h; sourceTree = "<group>"; };
+		D032D9F01B0000DF00D9BB60 /* CC3Foundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Foundation.m; sourceTree = "<group>"; };
+		D032D9F11B0000DF00D9BB60 /* CC3Kazmath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CC3Kazmath.c; sourceTree = "<group>"; };
+		D032D9F21B0000DF00D9BB60 /* CC3Kazmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Kazmath.h; sourceTree = "<group>"; };
+		D032D9F31B0000DF00D9BB60 /* CC3Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Logging.h; sourceTree = "<group>"; };
+		D032D9F41B0000DF00D9BB60 /* CC3Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC3Math.h; sourceTree = "<group>"; };
+		D032D9F51B0000DF00D9BB60 /* CC3Math.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c; fileEncoding = 4; path = CC3Math.m; sourceTree = "<group>"; };
+		D032D9F61B0000DF00D9BB60 /* CC3GLMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3GLMatrix.m; sourceTree = "<group>"; };
+		D032D9FC1B000BC800D9BB60 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		D032D9FE1B000BDC00D9BB60 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		D0BD81521B001356006581C4 /* Vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Vertex.glsl; sourceTree = "<group>"; };
+		D0BD81531B001356006581C4 /* CalculationShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CalculationShader.fsh; sourceTree = "<group>"; };
+		D0BD81541B001356006581C4 /* Fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fragment.glsl; sourceTree = "<group>"; };
+		D0BD81581B002B0E006581C4 /* 0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0001.png; sourceTree = "<group>"; };
+		D0BD81591B002B0E006581C4 /* 0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0002.png; sourceTree = "<group>"; };
+		D0BD815C1B00507B006581C4 /* StructureFromMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructureFromMotion.h; sourceTree = "<group>"; };
+		D0BD815D1B00507B006581C4 /* StructureFromMotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StructureFromMotion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D032D9FF1B000BDC00D9BB60 /* ImageIO.framework in Frameworks */,
+				D032D9FD1B000BC800D9BB60 /* OpenGLES.framework in Frameworks */,
 				D01CFB9B1AE1BEA5001D1CA4 /* opencv2.framework in Frameworks */,
 				425CAA9B17FF8E2400F23AD2 /* UIKit.framework in Frameworks */,
 				425CAADD17FF915000F23AD2 /* QuartzCore.framework in Frameworks */,
@@ -163,6 +202,8 @@
 		425CAA9517FF8E2400F23AD2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D032D9FE1B000BDC00D9BB60 /* ImageIO.framework */,
+				D032D9FC1B000BC800D9BB60 /* OpenGLES.framework */,
 				D01CFB9A1AE1BEA5001D1CA4 /* opencv2.framework */,
 				425CAADC17FF915000F23AD2 /* QuartzCore.framework */,
 				425CAADA17FF914400F23AD2 /* CoreVideo.framework */,
@@ -182,6 +223,8 @@
 		425CAA9C17FF8E2400F23AD2 /* ios7tester */ = {
 			isa = PBXGroup;
 			children = (
+				D0BD81511B001332006581C4 /* shaders */,
+				D032D9FB1B0000F500D9BB60 /* CC3 */,
 				425CAAA517FF8E2400F23AD2 /* AppDelegate.h */,
 				425CAAA617FF8E2400F23AD2 /* AppDelegate.m */,
 				425CAAA817FF8E2400F23AD2 /* Main_iPhone.storyboard */,
@@ -196,7 +239,13 @@
 				42C7AEEC180E80DA007EE55D /* freak.h */,
 				42C7AEED180E80DA007EE55D /* freak.mm */,
 				427FFDB7180C122E00D17F96 /* OpticalFlow.h */,
+				D032D9E61AFDD22300D9BB60 /* Calibrator.h */,
+				D032D9E71AFDD22300D9BB60 /* Calibrator.mm */,
 				427FFDB8180C122E00D17F96 /* OpticalFlow.mm */,
+				D032D9EA1B0000A900D9BB60 /* OpenGLView.h */,
+				D032D9EB1B0000A900D9BB60 /* OpenGLView.mm */,
+				D0BD815C1B00507B006581C4 /* StructureFromMotion.h */,
+				D0BD815D1B00507B006581C4 /* StructureFromMotion.m */,
 				425CAAB117FF8E2400F23AD2 /* Images.xcassets */,
 				425CAA9D17FF8E2400F23AD2 /* Supporting Files */,
 			);
@@ -206,6 +255,8 @@
 		425CAA9D17FF8E2400F23AD2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D0BD81581B002B0E006581C4 /* 0001.png */,
+				D0BD81591B002B0E006581C4 /* 0002.png */,
 				42F4547B180A11A900590B05 /* annies.jpg */,
 				42F45480180A2D3D00590B05 /* Sriracha.jpg */,
 				42F45482180A2F6D00590B05 /* original.jpg */,
@@ -250,6 +301,34 @@
 				42F454791809B56000590B05 /* CVDelegate.mm */,
 			);
 			name = "LED(unused)";
+			sourceTree = "<group>";
+		};
+		D032D9FB1B0000F500D9BB60 /* CC3 */ = {
+			isa = PBXGroup;
+			children = (
+				D032D9ED1B0000DF00D9BB60 /* ccTypes.h */,
+				D032D9EE1B0000DF00D9BB60 /* CC3GLMatrix.h */,
+				D032D9EF1B0000DF00D9BB60 /* CC3Foundation.h */,
+				D032D9F01B0000DF00D9BB60 /* CC3Foundation.m */,
+				D032D9F11B0000DF00D9BB60 /* CC3Kazmath.c */,
+				D032D9F21B0000DF00D9BB60 /* CC3Kazmath.h */,
+				D032D9F31B0000DF00D9BB60 /* CC3Logging.h */,
+				D032D9F41B0000DF00D9BB60 /* CC3Math.h */,
+				D032D9F51B0000DF00D9BB60 /* CC3Math.m */,
+				D032D9F61B0000DF00D9BB60 /* CC3GLMatrix.m */,
+			);
+			name = CC3;
+			sourceTree = "<group>";
+		};
+		D0BD81511B001332006581C4 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				D0BD81521B001356006581C4 /* Vertex.glsl */,
+				D0BD81531B001356006581C4 /* CalculationShader.fsh */,
+				D0BD81541B001356006581C4 /* Fragment.glsl */,
+			);
+			name = shaders;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,18 +411,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				42F4547C180A11A900590B05 /* annies.jpg in Resources */,
+				D0BD815A1B002B0E006581C4 /* 0001.png in Resources */,
+				D0BD81571B001356006581C4 /* Fragment.glsl in Resources */,
 				42C7AEF4180EB077007EE55D /* warhol.jpg in Resources */,
 				425CAAAD17FF8E2400F23AD2 /* Main_iPad.storyboard in Resources */,
 				42F45481180A2D3D00590B05 /* Sriracha.jpg in Resources */,
 				42F45485180A2FE600590B05 /* square_annies_logo.jpg in Resources */,
 				425CAAB217FF8E2400F23AD2 /* Images.xcassets in Resources */,
 				425CAAAA17FF8E2400F23AD2 /* Main_iPhone.storyboard in Resources */,
+				D0BD815B1B002B0E006581C4 /* 0002.png in Resources */,
+				D0BD81561B001356006581C4 /* CalculationShader.fsh in Resources */,
 				42C7AEF6180EC10D007EE55D /* uncorked_icon.jpg in Resources */,
 				42C7AEF2180EABF3007EE55D /* imgres.jpg in Resources */,
 				42C7AEF8180EC227007EE55D /* uncorked_logo300.png in Resources */,
 				425CAAA117FF8E2400F23AD2 /* InfoPlist.strings in Resources */,
 				42C7AEFA180EC55C007EE55D /* santita2.png in Resources */,
 				42F45483180A2F6D00590B05 /* original.jpg in Resources */,
+				D0BD81551B001356006581C4 /* Vertex.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +446,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D032D9F81B0000DF00D9BB60 /* CC3Kazmath.c in Sources */,
 				425CAAB017FF8E2400F23AD2 /* ViewController.mm in Sources */,
 				42F4547F180A176400590B05 /* templateMatcher.mm in Sources */,
+				D032D9F71B0000DF00D9BB60 /* CC3Foundation.m in Sources */,
+				D032D9E81AFDD22300D9BB60 /* Calibrator.mm in Sources */,
+				D032D9F91B0000DF00D9BB60 /* CC3Math.m in Sources */,
 				427FFDB9180C122E00D17F96 /* OpticalFlow.mm in Sources */,
 				42C7AEEE180E80DA007EE55D /* freak.mm in Sources */,
+				D032D9FA1B0000DF00D9BB60 /* CC3GLMatrix.m in Sources */,
 				42F4547A1809B56000590B05 /* CVDelegate.mm in Sources */,
+				D032D9EC1B0000A900D9BB60 /* OpenGLView.mm in Sources */,
+				D0BD815E1B00507B006581C4 /* StructureFromMotion.m in Sources */,
 				427FFDB6180BFC4300D17F96 /* circleDetector.mm in Sources */,
 				425CAAA717FF8E2400F23AD2 /* AppDelegate.m in Sources */,
 				425CAAA317FF8E2400F23AD2 /* main.m in Sources */,
@@ -505,6 +596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -514,13 +606,15 @@
 					/Users/sam.royston/nonWorkProjects/OpenCViOS,
 					/Users/sam.royston/Downloads,
 				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios7tester/ios7tester-Prefix.pch";
 				INFOPLIST_FILE = "ios7tester/ios7tester-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s arm32";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -530,6 +624,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -539,13 +634,15 @@
 					/Users/sam.royston/nonWorkProjects/OpenCViOS,
 					/Users/sam.royston/Downloads,
 				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios7tester/ios7tester-Prefix.pch";
 				INFOPLIST_FILE = "ios7tester/ios7tester-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm32 armv7 armv7s";
-				"VALID_ARCHS[sdk=*]" = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

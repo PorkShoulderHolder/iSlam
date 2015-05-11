@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    self.freek = [[freak alloc] init];
+   // self.freek = [[freak alloc] init];
 	self.camera = [[CvVideoCamera alloc] initWithParentView:self.imgView];
 
     self.camera.delegate = nil;
@@ -46,7 +46,7 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -68,6 +68,12 @@
         case 4:
             cell.textLabel.text = @"Farneback Dense Optical Flow";
             break;
+        case 5:
+            cell.textLabel.text = @"Camera Calibration";
+            break;
+        case 6:
+            cell.textLabel.text = @"Structure from motion";
+            break;
         default:
             break;
     }
@@ -75,7 +81,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-        switch (indexPath.row) {
+    if (self.freek) {
+        [self.freek.openGLView removeFromSuperview];
+        
+    }
+    if (self.sfm) {
+        [self.sfm.openGLView removeFromSuperview];
+    }
+    switch (indexPath.row) {
             case 0:{
                 self.imgView.backgroundColor = [UIColor yellowColor];
                 self.opticalFlow = [[OpticalFlow alloc] init];
@@ -95,14 +108,17 @@
                 self.circleD = [[circleDetector alloc] init];
                 self.camera.delegate = self.circleD;
                 self.imgView.backgroundColor = [UIColor blueColor];
-
                 break;
             }
             case 3:{
                 self.freek = [[freak alloc] init];
                 self.camera.delegate = self.freek;
                 self.imgView.backgroundColor = [UIColor greenColor];
-
+                [self.imgView addSubview:self.freek.openGLView];
+                [self.imgView bringSubviewToFront: self.freek.openGLView];
+                self.imgView.userInteractionEnabled = TRUE;
+                self.freek.openGLView.exclusiveTouch = TRUE;
+                self.freek.openGLView.userInteractionEnabled = TRUE;
                 break;
             }
             case 4:{
@@ -112,9 +128,33 @@
                 self.imgView.backgroundColor = [UIColor redColor];
                 break;
             }
+            case 5:{
+                self.calibrate = [[Calibrator alloc] init];
+                self.camera.delegate = self.calibrate;
+                self.imgView.backgroundColor = [UIColor redColor];
+                break;
+            }
+            case 6:{
+                self.sfm = [[StructureFromMotion alloc] init];
+                self.camera.delegate = self.sfm;
+                self.imgView.backgroundColor = [UIColor greenColor];
+                [self.imgView addSubview:self.sfm.openGLView];
+                [self.imgView bringSubviewToFront: self.sfm.openGLView];
+                self.imgView.userInteractionEnabled = TRUE;
+                self.sfm.openGLView.exclusiveTouch = TRUE;
+                self.sfm.openGLView.userInteractionEnabled = TRUE;
+            }
             default:
                 break;
         }
+}
+
+- (IBAction) saveImage:(id)sender{
+    self.sfm.shouldSave = YES;
+}
+
+-(IBAction)run:(id)sender{
+    self.sfm.shouldRun = !self.sfm.shouldRun;
 }
 
 - (void)didReceiveMemoryWarning
