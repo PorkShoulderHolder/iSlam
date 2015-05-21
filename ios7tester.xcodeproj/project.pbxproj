@@ -58,7 +58,7 @@
 		D0BD81571B001356006581C4 /* Fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81541B001356006581C4 /* Fragment.glsl */; };
 		D0BD815A1B002B0E006581C4 /* 0001.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81581B002B0E006581C4 /* 0001.png */; };
 		D0BD815B1B002B0E006581C4 /* 0002.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BD81591B002B0E006581C4 /* 0002.png */; };
-		D0BD815E1B00507B006581C4 /* StructureFromMotion.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BD815D1B00507B006581C4 /* StructureFromMotion.m */; };
+		D0BD815E1B00507B006581C4 /* StructureFromMotion.mm in Sources */ = {isa = PBXBuildFile; fileRef = D0BD815D1B00507B006581C4 /* StructureFromMotion.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,7 +143,7 @@
 		D0BD81581B002B0E006581C4 /* 0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0001.png; sourceTree = "<group>"; };
 		D0BD81591B002B0E006581C4 /* 0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0002.png; sourceTree = "<group>"; };
 		D0BD815C1B00507B006581C4 /* StructureFromMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructureFromMotion.h; sourceTree = "<group>"; };
-		D0BD815D1B00507B006581C4 /* StructureFromMotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StructureFromMotion.m; sourceTree = "<group>"; };
+		D0BD815D1B00507B006581C4 /* StructureFromMotion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StructureFromMotion.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +245,7 @@
 				D032D9EA1B0000A900D9BB60 /* OpenGLView.h */,
 				D032D9EB1B0000A900D9BB60 /* OpenGLView.mm */,
 				D0BD815C1B00507B006581C4 /* StructureFromMotion.h */,
-				D0BD815D1B00507B006581C4 /* StructureFromMotion.m */,
+				D0BD815D1B00507B006581C4 /* StructureFromMotion.mm */,
 				425CAAB117FF8E2400F23AD2 /* Images.xcassets */,
 				425CAA9D17FF8E2400F23AD2 /* Supporting Files */,
 			);
@@ -457,7 +457,7 @@
 				D032D9FA1B0000DF00D9BB60 /* CC3GLMatrix.m in Sources */,
 				42F4547A1809B56000590B05 /* CVDelegate.mm in Sources */,
 				D032D9EC1B0000A900D9BB60 /* OpenGLView.mm in Sources */,
-				D0BD815E1B00507B006581C4 /* StructureFromMotion.m in Sources */,
+				D0BD815E1B00507B006581C4 /* StructureFromMotion.mm in Sources */,
 				427FFDB6180BFC4300D17F96 /* circleDetector.mm in Sources */,
 				425CAAA717FF8E2400F23AD2 /* AppDelegate.m in Sources */,
 				425CAAA317FF8E2400F23AD2 /* main.m in Sources */,

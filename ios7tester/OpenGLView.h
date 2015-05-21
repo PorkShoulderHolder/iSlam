@@ -27,14 +27,14 @@
 @property float currentRotation;
 @property (nonatomic, assign) float zoom;
 @property (atomic, assign) cv::vector<cv::Point3d> pixelsToRender;
-@property (atomic, assign) cv::vector<cv::Point3d> colorsToRender;
+@property (atomic, assign) cv::vector<cv::Vec3b> colorsToRender;
 
 
 @property (nonatomic, retain) UIGestureRecognizer *gestureRecognizer;
 @property (nonatomic, assign) CGPoint touchDown;
 @property (nonatomic, readwrite) BOOL dontTouch;
 
-- (std::vector<float>)getPixelsWithHorizDensity:(int)xres andVertDensity:(int)yres;
+- (cv::vector<float>)getPixelsWithHorizDensity:(int)xres andVertDensity:(int)yres;
 
 +(Class)layerClass;
 

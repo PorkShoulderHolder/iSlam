@@ -39,5 +39,8 @@ using namespace cv;
 
 -(IBAction) saveImage:(id)sender;
 -(IBAction) run:(id)sender;
+-(IBAction) swipeUp:(id)sender;
+-(IBAction) swipeDown:(id)sender;
+
 
 @end

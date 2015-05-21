@@ -14,7 +14,7 @@
 @implementation OpenGLView
 
 CC3Vector rotation;
-float scalefactor = 200;
+float scalefactor = 600;
 int lastPixelCount = 0;
 int arraysize = 7008;
 //float cube[] = {
@@ -103,6 +103,7 @@ float zoomCoef = 1;
         rotation = CC3VectorMake(0, 0, 0);
         UIPinchGestureRecognizer *zoomPinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handleZoom:)];
         [self addGestureRecognizer:zoomPinch];
+        
            }
     return self;
 }
@@ -140,8 +141,9 @@ float zoomCoef = 1;
         zoom *= zoomCoef;
         zoomCoef = 1;
     }
-    NSLog(@"%f",sender.scale);
 }
+
+
 
 typedef struct {
     float Position[3];
@@ -239,6 +241,7 @@ GLubyte Indices[10000];
     xRot *= 0.95;
     yRot *= 0.95;
     zRot *= 0.95;
+    
     rotation =CC3VectorMake(rotation.x - 0.5 * xRot, rotation.y - 0.5 * yRot, rotation.z - 0.5 * zRot);
     [modelView rotateBy:rotation];
     glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
@@ -250,13 +253,13 @@ GLubyte Indices[10000];
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE,
                           sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
        
-    std::vector<float> pixels = [self getPixelsWithHorizDensity:5 andVertDensity:3];
+    cv::vector<float> pixels = [self getPixelsWithHorizDensity:5 andVertDensity:3];
     
         
         float max_mag = 0;
-        
+        std::cout << pixels.size() << "," << self.colorsToRender.size() << std::endl;
         for(int k = 0; k < fmax(pixels.size(), lastPixelCount); k += 3){
-            if (k >= pixels.size()) {
+            if (k >= pixels.size() - 1) {
                 Vertices[k/3].Position[0] =0;
                 Vertices[k/3].Position[1] = 0;
                 Vertices[k/3].Position[2] = 0;
@@ -266,12 +269,17 @@ GLubyte Indices[10000];
                 Vertices[k/3].Position[0] =( scalefactor * (pixels.at(k) / 256.0f) );
                 Vertices[k/3].Position[1] = ( scalefactor * (pixels.at(k + 1) / 256.0f) );
                 Vertices[k/3].Position[2] = ( scalefactor * (pixels.at(k + 2) / 256.0f) );
-                Vertices[k/3].Color[3] = 0.7f;
+                Vertices[k/3].Color[3] = 1.0f;
+                Vertices[k/3].Color[0] =  0.0f;
+                Vertices[k/3].Color[1] =  0.0f;
+                Vertices[k/3].Color[2] =  0.0f;
+                //if(k/3 < self.colorsToRender.size()){
+                    //Vertices[k/3].Color[0] =  self.colorsToRender.at(k/3)[0] / 255.0f;
+                    //Vertices[k/3].Color[1] =  self.colorsToRender.at(k/3)[1] / 255.0f;
+                    //Vertices[k/3].Color[2] =  self.colorsToRender.at(k/3)[2] / 255.0f;
+                //}
             }
             
-            Vertices[k/3].Color[0] = 0;//pixels.at(k) / 255.0f;
-            Vertices[k/3].Color[1] = 0;//pixels.at(k + 1) / 255.0f;
-            Vertices[k/3].Color[2] = 0;//pixels.at(k + 2) / 255.0f;
             
         }
         
@@ -286,10 +294,10 @@ GLubyte Indices[10000];
     }
 }
 
-- (std::vector<float>)getPixelsWithHorizDensity:(int)xres andVertDensity:(int)yres{
+- (cv::vector<float>)getPixelsWithHorizDensity:(int)xres andVertDensity:(int)yres{
     
     self.dontTouch = TRUE;
-    std::vector<float> output;
+    cv::vector<float> output;
     if (self.pixelsToRender.size() > 2) {
         float maxMag = 0;
         for (int k = 0; k < self.pixelsToRender.size(); k ++) {
@@ -302,7 +310,7 @@ GLubyte Indices[10000];
         
         for (int i = 0; i < self.pixelsToRender.size(); i ++) {
             
-            cv::Point3d point = self.pixelsToRender[i];
+            cv::Point3d point = self.pixelsToRender.at(i);
             output.push_back(point.x / maxMag);
             output.push_back(point.y / maxMag);
             output.push_back(point.z / maxMag);

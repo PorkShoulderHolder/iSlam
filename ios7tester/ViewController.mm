@@ -149,6 +149,19 @@
         }
 }
 
+- (IBAction) swipeDown:(id)sender{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.sfm.openGLView.frame = CGRectMake(0, 0, self.sfm.openGLView.frame.size.width, self.sfm.openGLView.frame.size.height);
+    }];
+    
+}
+
+- (IBAction) swipeUp:(id)sender{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.sfm.openGLView.frame = CGRectMake(0, 0 - self.sfm.openGLView.frame.size.height, self.sfm.openGLView.frame.size.width, self.sfm.openGLView.frame.size.height);
+    }];
+}
+
 - (IBAction) saveImage:(id)sender{
     self.sfm.shouldSave = YES;
 }
