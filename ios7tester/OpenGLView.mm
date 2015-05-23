@@ -256,8 +256,6 @@ GLubyte Indices[10000];
     cv::vector<float> pixels = [self getPixelsWithHorizDensity:5 andVertDensity:3];
     
         
-        float max_mag = 0;
-        std::cout << pixels.size() << "," << self.colorsToRender.size() << std::endl;
         for(int k = 0; k < fmax(pixels.size(), lastPixelCount); k += 3){
             if (k >= pixels.size() - 1) {
                 Vertices[k/3].Position[0] =0;
@@ -269,18 +267,18 @@ GLubyte Indices[10000];
                 Vertices[k/3].Position[0] =( scalefactor * (pixels.at(k) / 256.0f) );
                 Vertices[k/3].Position[1] = ( scalefactor * (pixels.at(k + 1) / 256.0f) );
                 Vertices[k/3].Position[2] = ( scalefactor * (pixels.at(k + 2) / 256.0f) );
-                Vertices[k/3].Color[3] = 1.0f;
+                Vertices[k/3].Color[3] = 0.8f;
                 Vertices[k/3].Color[0] =  0.0f;
                 Vertices[k/3].Color[1] =  0.0f;
                 Vertices[k/3].Color[2] =  0.0f;
-                //if(k/3 < self.colorsToRender.size()){
-                    //Vertices[k/3].Color[0] =  self.colorsToRender.at(k/3)[0] / 255.0f;
-                    //Vertices[k/3].Color[1] =  self.colorsToRender.at(k/3)[1] / 255.0f;
-                    //Vertices[k/3].Color[2] =  self.colorsToRender.at(k/3)[2] / 255.0f;
-                //}
+                if(k/3 < self.colorsToRender.size()){
+                    cv::Scalar color = self.colorsToRender[(int)k/3] ;
+                    
+                    Vertices[k/3].Color[0] = ((float) color[2]) / 256.0f;
+                    Vertices[k/3].Color[1] = ((float) color[1]) / 256.0f;
+                    Vertices[k/3].Color[2] = ((float) color[0]) / 256.0f;
+                }
             }
-            
-            
         }
         
         lastPixelCount = pixels.size();
@@ -301,7 +299,7 @@ GLubyte Indices[10000];
     if (self.pixelsToRender.size() > 2) {
         float maxMag = 0;
         for (int k = 0; k < self.pixelsToRender.size(); k ++) {
-                        cv::Point3d point = self.pixelsToRender[k];
+            cv::Point3d point = self.pixelsToRender[k];
             float mag = sqrt(point.dot(point));
             if (mag > maxMag) {
                 maxMag = mag;

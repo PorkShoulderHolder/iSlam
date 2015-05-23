@@ -27,7 +27,7 @@
 @property float currentRotation;
 @property (nonatomic, assign) float zoom;
 @property (atomic, assign) cv::vector<cv::Point3d> pixelsToRender;
-@property (atomic, assign) cv::vector<cv::Vec3b> colorsToRender;
+@property (atomic, assign) cv::vector<cv::Scalar> colorsToRender;
 
 
 @property (nonatomic, retain) UIGestureRecognizer *gestureRecognizer;
